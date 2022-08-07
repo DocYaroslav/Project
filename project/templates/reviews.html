@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link href="/static/styles.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="/static/png.png" type="image/x-icon">
+        <title>My Webpage</title>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <header>
+                <h1>Best clinic</h1>
+            </header>
+            <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/services">Services</a></li>
+                    <li><a href="/price">Prices</a></li>
+                    <li><a class="active" href="/reviews">Reviews</a></li>
+                    <li><a href="/login">For Staff</a></li>
+                    <li><a href="/contacts">Contacts</a></li>
+                </ul>
+                <form>
+                    <input type="search" name="q" placeholder="Search query">
+                    <input type="submit" value="Find!">
+                </form>
+            </nav>
+            <main>
+                <div class="container">
+                    <form action="/reviews" method="post">
+                        <div class="mb-3">
+                            <input class="form-label" autocomplete="off" autofocus id="username" name="username" placeholder="Your name" type="text" size="30">
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-label" name="sport">
+                                <option disabled selected value="">Specialist</option>
+                                {% for specialist in specialists %}
+                                    <option value="{{ specialist }}">{{ specialist }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-label" autofocus id="recommend" name="recommend" type="checkbox"> I recommend
+
+                        </div>
+                        <div >
+                            <input class="form-label" autocomplete="off" autofocus id="grade" name="grade" placeholder="Rate" type="number" min="1" max="5">
+                        </div>
+                        <div class="mb-3 row">
+                            <textarea class="form-label" autofocus id="userreview" name="userreview" placeholder="Your review" type="text" rows="5"></textarea>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Evaluate</button>
+                    </form>
+                </div>
+                <table class="table table-boarded">
+                    <thead>
+                        <tr>
+                            <th style="width:20%">Name</th>
+                            <th>Review</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for review in reviews %}
+                            {% if review["userreview"] != 0 %}
+                                <tr>
+                                    <td><b>{{ review["username"] }}</b><br>{{ review["date"] }}<br>Rating - {{ review["grade"] }}<br>{{ review["recommend"] }}</td>
+                                    <td> {{ review["userreview"] }}</td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </main>
+            <footer>
+                Copyright &#169; Best clinic
+                <a href='https://.pngtree.com/so/медицинский'>png logo</a>
+            </footer>
+        </div>
+        <script src="/static/alert.js"></script>
+    </body>
+</html>

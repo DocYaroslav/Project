@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link href="/static/styles.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="/static/png.png" type="image/x-icon">
+        <title>My Webpage</title>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <header>
+                <h1>Best clinic</h1>
+            </header>
+            <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/services">Services</a></li>
+                    <li><a href="/price">Prices</a></li>
+                    <li><a href="/reviews">Reviews</a></li>
+                    <li><a class="active" href="/appointments">Appointment</a></li>
+                    <li><a href="/login">For Staff</a></li>
+                    <li><a href="/contacts">Contacts</a></li>
+                </ul>
+                <form>
+                    <input type="search" name="q" placeholder="Search query">
+                    <input type="submit" value="Find!">
+                </form>
+            </nav>
+            <main>
+                <form action="/appoint" method="post">
+                    <div class="mb-3">
+                        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="firstname" name="firstname" placeholder="First name" type="text">
+                    </div>
+                    <div class="mb-3">
+                        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="familyname" name="familyname" placeholder="Family name" type="text">
+                    </div>
+                    <div class="mb-3">
+                        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="shares" name="shares" placeholder="Number" type="number" min="1">
+                    </div>
+                    <div class="mb-3">
+                        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="shares" name="shares" placeholder="Number" type="number" min="1">
+                    </div>
+                    <button class="btn btn-primary" type="submit">Request</button>
+                </form>
+            </main>
+            <footer>
+                Copyright &#169; Best clinic
+                <a href='https://.pngtree.com/so/медицинский'>png logo</a>
+            </footer>
+        </div>
+        <script src="/static/alert.js"></script>
+    </body>
+</html>
